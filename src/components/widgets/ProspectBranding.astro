@@ -1,0 +1,21 @@
+---
+import ProspectLogo from "./ProspectLogo.astro";
+
+const { color, logo } = Astro.props;
+---
+
+
+<section class="p-10 border-b-8 brand-stripe">
+    <img class="mx-auto" src={logo} />
+</section>
+
+<style define:vars={{color}}>
+    .brand-stripe {
+        border-color:var(--color);
+
+    }
+
+    img {
+        max-height: 140px;
+    }
+</style>

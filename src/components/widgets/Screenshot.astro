@@ -1,0 +1,17 @@
+---
+const { screenshot } = Astro.props;
+---
+
+<div class="border-8 border-slate-700 w-fit rounded-2xl">
+<div class="screenshot-container w-fit rounded-xl">
+    <img src={screenshot} />
+</div>
+</div>
+
+<style>
+.screenshot-container {
+    max-height: 700px;
+    overflow: hidden;
+}
+</style>
+

@@ -1,0 +1,26 @@
+---
+import Screenshot from "./Screenshot.astro";
+
+const { prospect } = Astro.props;
+---
+
+<section class="bg-slate-900">
+    <div class="p-12 pt-24 text-stone-300 max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-8">
+          <div class="p-4 text-xl">
+            <h3 class="text-2xl mb-2">👋 Hello, {prospect.companyName}!</h3>
+            <h1 class="text-white text-6xl md:text-[3.50rem] font-bold leading-tighter tracking-tighter mb-8">We can make this really fast.</h1>
+            <p class="mb-8">At Netlify, we’ve worked with a lot of teams using <strong class="text-white">{prospect.cms}</strong> just like your website.</p>
+            <p class="mb-8">We created this <span class="text-orange-400">live demo</span> 🔥 to show you how we can:</p>
+            <ul class="list-disc pl-6">
+                <li>Make your site performance faster</li>
+                <li>Help you ship new features faster</li>
+                <li>Personalize pages right on the edge</li>
+            </ul>
+          </div>
+          <div class="p-4">
+            <Screenshot screenshot={prospect.screenshot} />
+          </div>
+        </div>
+      </div>
+</section>

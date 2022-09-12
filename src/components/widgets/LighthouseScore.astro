@@ -1,0 +1,36 @@
+---
+const { label, score, cls, fid, lcp } = Astro.props;
+---
+
+<div class="relative flex flex-col p-6 bg-slate-800 dark:bg-slate-900 rounded shadow-xl hover:shadow-lg transition dark:border dark:border-slate-800">
+    <div class="lighthouse-number-big">{score}</div>
+    <h3 class="text-center mt-4 text-xl text-teal-300">{label}</h3>
+    <table class="mt-4 table-auto">
+        <tr>
+            <th class="text-left border-b border-slate-600 pb-2 pt-2">Cumaliative Layout Shift</th><td class="text-right border-b border-slate-600 pb-2 pt-2">{cls}</td>
+        </tr>
+        <tr>
+            <th class="text-left border-b border-slate-600 pb-2 pt-2">First Input Delay</th><td class="text-right border-b border-slate-600 pb-2 pt-2">{fid}</td>
+        </tr>
+        <tr>
+            <th class="text-left border-b border-slate-600 pb-2 pt-2">Largest Contentful Paint</th><td class="text-right border-b border-slate-600 pb-2 pt-2">{lcp}</td>
+        </tr>        
+    </table>
+</div>
+
+<style>
+    .lighthouse-number-big {
+        font-size: 2em;
+        font-weight: bold;
+        color: black;
+        border-radius: 50%;
+        width: 3em;
+        height: 3em;
+        background: #fff;
+        border: 8px solid orange;
+        margin: auto;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+    }
+</style>

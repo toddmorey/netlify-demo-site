@@ -1,0 +1,15 @@
+---
+const { number } = Astro.props;
+---
+
+<h1 class="text-white text-6xl md:text-[2rem] font-bold leading-tighter tracking-tighter mb-8"><span class="text-teal-300 step-number">{number}</span> <slot/> </h1>
+
+
+<style>
+    .step-number {
+        display: inline-block;
+        border-right: 1px solid grey;
+        padding-right: 0.5em;
+        margin-right: 0.5em;
+    }
+</style>

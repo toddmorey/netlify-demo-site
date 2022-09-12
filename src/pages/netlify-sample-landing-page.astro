@@ -1,0 +1,49 @@
+---
+import { SITE } from "~/config.mjs";
+import { getCanonical, getHomePermalink } from "~/utils/permalinks";
+import Layout from "~/layouts/PageLayout.astro";
+
+const meta = {
+  title: SITE.title,
+  description: SITE.description,
+  canonical: getCanonical(getHomePermalink()),
+}
+---
+
+<Layout meta={meta}>
+    <div class="gradient-header">
+        <section class="text-center mt-10">
+            <div class="rounded-full font-bold text-indigo-200 bg-black w-40 p-4 mx-auto mt-60">LIVE EVENT</div>
+            <h1 class="text-white text-6xl font-bold leading-tighter tracking-tighter mb-10">
+                We're preparing <br/>something amazing.
+            </h1>
+            <p class="text-white text-3xl font-bold leading-loose tracking-tighter mb-8 max-w-xl mx-auto">
+                Join us for a special event broadcasting from San Francisco, CA. November 13 2022 at 10 a.m. PT
+            </p>
+            <p class="text-white text-3xl font-bold leading-loose tracking-tighter mb-8 max-w-xl mx-auto">
+                Watch it online here.
+            </p>            
+            
+        </section>
+    </div>
+</Layout>
+
+<style>
+
+.gradient-header {
+
+    padding: 0px;
+    gap: 10px;
+
+    background: conic-gradient(from 0deg at 50% 52.92%, #FFF6D0 -6.48deg, #FFFFFF 6.5deg, #9EF9E0 32.92deg, #5CEBDF 46.92deg, #5CEBDF 66.67deg, #2250F4 79.79deg, #061475 88.76deg, #22262A 107.09deg, #22262A 176.22deg, #22262A 259.56deg, #3E119C 273.94deg, #783AFA 282.28deg, #FF6B60 298.11deg, #FFCF50 325.97deg, #FFF6D0 353.52deg, #FFFFFF 366.5deg);
+    border-radius: 0px;
+    padding-top: 340px;
+    margin-top: -300px;
+}
+
+h1 {
+    padding-top: 60px;
+}
+
+</style>
+

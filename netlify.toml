@@ -1,3 +1,13 @@
 [build]
   publish = "dist"
   command = "npm run build"
+
+[[edge_functions]]
+    path = "/*"
+    function = "include-banner"
+
+[[redirects]]
+  from = "/*"
+  to = "https://www.optimizely.com/:splat"
+  status = 200
+  headers = {X-From = "Netlify"}

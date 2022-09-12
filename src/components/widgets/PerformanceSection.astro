@@ -1,0 +1,42 @@
+---
+import LighthouseScore from "./LighthouseScore.astro";
+import StepHeader from "./StepHeader.astro";
+
+const { score } = Astro.props;
+---
+
+<section class="bg-slate-900">
+    <div class="p-12 pt-24 text-stone-300 max-w-6xl mx-auto">
+        <StepHeader number="1">Let's talk about performance</StepHeader>
+        <div class="grid gap-6 md:grid-cols-2 items-start my-12 dark:text-white">
+            <LighthouseScore
+                label="Current Site" 
+                score={score.performance * 1000} 
+                cls={score.CLS} 
+                fid={score.FID} 
+                lcp={score.LCP}
+            />
+            <LighthouseScore
+                label="Accelerated With Netlify" 
+                score={score.performance * 1000} 
+                cls={score.CLS} 
+                fid={score.FID} 
+                lcp={score.LCP}
+            />            
+        </div>
+        <h1 class="text-white text-4xl md:text-[1.4rem] font-bold leading-tighter tracking-tighter mb-4">How we did it</h1>
+        <p class="mb-8">On this demo, we’ve added Netlify in
+            front of your existing site to globally 
+            cache the pages. The performance you
+            are seeing comes from our global
+            edge network. </p>
+        <h1 class="text-white text-4xl md:text-[1.4rem] font-bold leading-tighter tracking-tighter mb-4">Learn more</h1>
+        <ul>
+            <li>Make your site performance faster</li>
+            <li>Help you ship new features faster</li>
+            <li>Personalize pages right on the edge</li>
+        </ul>        
+
+
+    </div>    
+</section>

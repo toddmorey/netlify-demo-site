@@ -12,16 +12,37 @@ import TwoColsFeatures from "~/components/widgets/TwoColsFeatures.astro";
 import StepsLeft from "~/components/widgets/StepsLeft.astro";
 import HighlightedPosts from "~/components/widgets/HighlightedPosts.astro";
 import Stats from "~/components/widgets/Stats.astro";
+import ProspectBranding from "~/components/widgets/ProspectBranding.astro";
+import MakeThisFast from "~/components/widgets/MakeThisFast.astro";
+import PerformanceSection from "~/components/widgets/PerformanceSection.astro";
+
+import { pullSiteDetailsFromFirebase } from "~/utils/pullSiteDetailsFromFirebase";
+import ContentSection from "~/components/widgets/ContentSection.astro";
 
 const meta = {
   title: SITE.title,
   description: SITE.description,
   canonical: getCanonical(getHomePermalink()),
 }
+
+const prospect = await pullSiteDetailsFromFirebase();
+const decodedLogo = "data:image/png;base64, " + prospect.companyLogo;
+
+const score = {
+  performance: prospect.performance,
+  CLS: prospect.CLS,
+  FID: prospect.FID,
+  LCP: prospect.LCP
+}
+
+
 ---
 
 <Layout meta={meta}>
-  <Hero />
+  <ProspectBranding logo={decodedLogo} color={prospect.brandColor}/>
+  <MakeThisFast prospect={prospect}/>
+  <PerformanceSection score={score}/>
+  <ContentSection />
   <BasicFeatures />
   <StepsLeft />
   <TwoColsFeatures />
