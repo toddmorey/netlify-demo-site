@@ -29,7 +29,7 @@ export default async (request: Request, context: Context) => {
   const regex = /<\/html>/i;
 
   // Replace the content
-  const bannerContent = "<div style='position:fixed;top:0;left:0;width:100%;padding:10px;background-color:black;color:white;z-index:1000;text-align:center'>Join us for a special launch event <strong style='color:#8CF4FF;'>"+localEventDateTime+"</strong> ("+timeZone+") </div></html>";
+  const bannerContent = "<div style='position:fixed;top:0;left:0;width:100%;padding:10px;background-color:black;color:white;z-index:1000;text-align:center'>Join us for a special launch event <strong style='color:#8CF4FF;'>"+localEventDateTime+"</strong> ("+context.geo.city+") </div></html>";
   const updatedPage = page.replace(regex, bannerContent);
   return new Response(updatedPage, response);
 };
